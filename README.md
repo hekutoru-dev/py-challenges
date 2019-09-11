@@ -1,5 +1,5 @@
 # Python Challenges - Python Scripting
-Data Analytics BootCamp Assignment 03 
+Data Analytics (Assignment 03)
 
 ## Background
 In this assignment, Python is used to complete 4 scripting challenges.
