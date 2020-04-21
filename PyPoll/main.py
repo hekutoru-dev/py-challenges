@@ -42,16 +42,19 @@ with open(csvpath, newline='') as election:
     winner = unique_candidate_list[ votes_per_candidate.index(max_votes) ]        
 
     # PRINT results to Terminal
-    print ("")
-    print ('Election Results')
-    print ('---------------------------')
-    print (f'Total Votes: {total_votes}')
-    print (f'Khan: {votes_per_candidate[0]} {percentage_votes[0]} %')
-    print (f'Correy: {votes_per_candidate[1]} {percentage_votes[1]} %')
-    print (f'Li: {votes_per_candidate[2]} {percentage_votes[2]} %')
-    print (f"O'Tooley: {votes_per_candidate[3]} {percentage_votes[3]} %")
-    print ('---------------------------')
-    print (f'Winner is: {winner}')
+    report = (  '\n'
+                'Election Results\n'
+                '---------------------------\n'
+                f'Total Votes: {total_votes}\n'
+                f'Khan: {votes_per_candidate[0]} {percentage_votes[0]:.3f} %\n'
+                f'Correy: {votes_per_candidate[1]} {percentage_votes[1]:.3f} %\n'
+                f'Li: {votes_per_candidate[2]} {percentage_votes[2]:.3f} %\n'
+                f"O'Tooley: {votes_per_candidate[3]} {percentage_votes[3]:.3f} %\n"
+                '---------------------------\n'
+                f'Winner is: {winner}'
+            )
+    print(report)
+
 
 # Define an Output path and a filename for that output.
 output_file = os.path.join(".", "", "Election_Results.txt")
@@ -60,12 +63,4 @@ output_file = os.path.join(".", "", "Election_Results.txt")
 with open(output_file,"w") as file:
     
     # Write methods to print to Financial Analysis.
-    file.write("Election Results\n")
-    file.write("----------------------------\n")
-    file.write(f'Total Votes: {total_votes}\n')
-    file.write(f'Khan: {votes_per_candidate[0]} {percentage_votes[0]} %\n')
-    file.write(f'Correy: {votes_per_candidate[1]} {percentage_votes[1]} %\n')
-    file.write(f'Li: {votes_per_candidate[2]} {percentage_votes[2]} %\n')
-    file.write(f"O'Tooley: {votes_per_candidate[3]} {percentage_votes[3]} %\n")
-    file.write("----------------------------\n")
-    file.write(f'Winner is: {winner}')    
+    file.write(report)

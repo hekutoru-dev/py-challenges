@@ -49,14 +49,17 @@ with open(csvpath, newline='') as budget:
     average_change = average_change/len(monthly_change)
     
     # Print a Summary.
-    print('')
-    print ("Financial Analysis")    
-    print ("------------------------------------")    
-    print (f'Total Months: {len(total_months)}')
-    print (f'Total Net: ${total_net_amount}')
-    print (f'Average Changes: ${average_change}')  
-    print (f'Greates Increase in Profit: ${max_increase} in {total_months[max_increase_index]}')
-    print (f'Greates Decrease in Profit: ${max_decrease} in {total_months[max_decrease_index]}')    
+    report = (  "\n"
+                "Financial Analysis\n"
+                "------------------------------------\n"
+                f'Total Months: {len(total_months)}\n'
+                f'Total Net: ${total_net_amount}\n'
+                f'Average Changes: ${average_change}\n'
+                f'Greates Increase in Profit: ${max_increase} in {total_months[max_increase_index]}\n'
+                f'Greates Decrease in Profit: ${max_decrease} in {total_months[max_decrease_index]}\n'
+            )
+    print(report)
+
 
 
 # Define an Output path and a filename for that output.
@@ -65,11 +68,6 @@ output_file = os.path.join(".", "", "Analysis_Summary.txt")
 with open(output_file,"w") as file:
     
     # Write methods to print to Financial Analysis.
-    file.write("Financial Analysis\n")
-    file.write("----------------------------\n")
-    file.write(f"Total Months: {len(total_months)}\n")
-    file.write(f'Total Net: ${total_net_amount}\n')
-    file.write(f'Average Changes: ${average_change}\n')
-    file.write(f"Greatest Increase in Profits: ${max_increase} in {total_months[max_increase_index]}\n")
-    file.write(f"Greatest Decrease in Profits: ${max_decrease} in {total_months[max_decrease_index]}\n")
+    file.write(report)
+
     
